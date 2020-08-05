@@ -1,0 +1,5 @@
+// reset.scss 重置浏览器标签
+@import '_reset.scss';
+
+// _base.scss 网站的基本样式，基本样式包括设置标题大小、默认链接样式、默认字体样式和主体背景。不需要使用！在基本风格中很重要。
+@import '_base.scss';

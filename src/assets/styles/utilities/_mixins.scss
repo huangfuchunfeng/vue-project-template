@@ -1,0 +1,53 @@
+//mixins function 使用方法： @include text-ellipsis
+@mixin text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+// 单行文本超出范围，显示省略号
+@mixin text-overflow($width: 100%, $display: block) {
+  width: $width;
+  display: $display;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin ellipsis($row: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @if $row != 1 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $row;
+  } @else {
+    white-space: nowrap;
+  }
+}
+
+// 美化滚动条样式
+@mixin scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: #f2f2f2;
+  }
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background-color: #f2f2f2;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: #b3b3b3;
+  }
+}
